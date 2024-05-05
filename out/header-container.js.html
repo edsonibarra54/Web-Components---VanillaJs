@@ -1,12 +1,40 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: header-container.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: header-container.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Represents a header web component.
  * @class
- * @author Edson Ibarra <edsonibarra54@gmail.com>
+ * @author Edson Ibarra &lt;edsonibarra54@gmail.com>
  * 
  * This component requires 2 JSON containing the information of every icon and route that are going to be displayed.
  * 
  * @example
- * <header-container icons='[icons JSON]' routes='[routes JSON]'></header-container>
+ * &lt;header-container icons='[icons JSON]' routes='[routes JSON]'>&lt;/header-container>
  * 
  * @example
  * icons JSON: [
@@ -31,7 +59,7 @@ class HeaderContainer extends HTMLElement{
     /**
      * It's used to get the date, title and image attributes of the html tag.
      * @function
-     * @returns {Array.<JSON>}
+     * @returns {Array.&lt;JSON>}
      */
     static get observedAttributes() {
         return ['icons', 'routes'];
@@ -67,53 +95,53 @@ class HeaderContainer extends HTMLElement{
      */
     render() {
         const iconsHTML = this.icons.map((icon, index) => {
-            if (index < this.icons.length - 1) {
+            if (index &lt; this.icons.length - 1) {
                 return `
-                    <div style="cursor: pointer; display: flex; align-items: center; flex-direction: row-reverse;">
-                        <div class="name">${icon.name}</div>
-                        <div class="circle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
-                                <path d="${icon.path}"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="line"></div>
+                    &lt;div style="cursor: pointer; display: flex; align-items: center; flex-direction: row-reverse;">
+                        &lt;div class="name">${icon.name}&lt;/div>
+                        &lt;div class="circle">
+                            &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
+                                &lt;path d="${icon.path}"/>
+                            &lt;/svg>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="line">&lt;/div>
                 `;
             } else {
                 return `
-                    <div style="cursor: pointer; display: flex; align-items: center; flex-direction: row-reverse;">
-                        <div class="name">${icon.name}</div>
-                        <div class="circle">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
-                                <path d="${icon.path}"/>
-                            </svg>
-                        </div>
-                    </div>
+                    &lt;div style="cursor: pointer; display: flex; align-items: center; flex-direction: row-reverse;">
+                        &lt;div class="name">${icon.name}&lt;/div>
+                        &lt;div class="circle">
+                            &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
+                                &lt;path d="${icon.path}"/>
+                            &lt;/svg>
+                        &lt;/div>
+                    &lt;/div>
                 `;
             }
         }).join('');
 
         const routesHTML = this.routes.map((route, index) => {
-            if (index < this.routes.length - 1) {
+            if (index &lt; this.routes.length - 1) {
                 return `
-                    <div class="routeContainer">
-                        <div class="route">${route}</div>
-                        <div class="bottomLine"></div>
-                    </div>
-                    <div class="line"></div>
+                    &lt;div class="routeContainer">
+                        &lt;div class="route">${route}&lt;/div>
+                        &lt;div class="bottomLine">&lt;/div>
+                    &lt;/div>
+                    &lt;div class="line">&lt;/div>
                 `;
             } else {
                 return `
-                    <div class="routeContainer">
-                        <div class="route">${route}</div>
-                        <div class="bottomLine"></div>
-                    </div>
+                    &lt;div class="routeContainer">
+                        &lt;div class="route">${route}&lt;/div>
+                        &lt;div class="bottomLine">&lt;/div>
+                    &lt;/div>
                 `;
             }
         }).join('');
 
         this.shadow.innerHTML = `
-            <style>
+            &lt;style>
                 .container {
                     width: 1500px;
                     height: fit-content;
@@ -227,25 +255,47 @@ class HeaderContainer extends HTMLElement{
                 .routeContainer:hover .bottomLine{
                     border-bottom: 2px solid #FFF;
                 }
-            </style>
-            <div>
-                <div class="container">
-                    <div class="iconContainer">
+            &lt;/style>
+            &lt;div>
+                &lt;div class="container">
+                    &lt;div class="iconContainer">
                         ${iconsHTML}
-                    </div>
-                    <div class="menuContainer">
-                        <div class="logoContainer">
-                            <img src="https://www.uapauaslp.mx/Content/Images/EMBLEMA-UASLP.png" class="logo">
-                            <div class="line"></div>
-                            <img src="https://i.ibb.co/Hn1m8Kw/ingenieria-logo.png" class="logo">
-                        </div>
-                        <div class="routesContainer">
+                    &lt;/div>
+                    &lt;div class="menuContainer">
+                        &lt;div class="logoContainer">
+                            &lt;img src="https://www.uapauaslp.mx/Content/Images/EMBLEMA-UASLP.png" class="logo">
+                            &lt;div class="line">&lt;/div>
+                            &lt;img src="https://i.ibb.co/Hn1m8Kw/ingenieria-logo.png" class="logo">
+                        &lt;/div>
+                        &lt;div class="routesContainer">
                             ${routesHTML}
-                        </div>
-                    </div>
-                </div>
-            </div> 
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div> 
         `;
     }
 }
-customElements.define('header-container', HeaderContainer);
+customElements.define('header-container', HeaderContainer);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BreadcrumbContainer.html">BreadcrumbContainer</a></li><li><a href="CardContainer.html">CardContainer</a></li><li><a href="EventCard.html">EventCard</a></li><li><a href="FooterContainer.html">FooterContainer</a></li><li><a href="HeaderContainer.html">HeaderContainer</a></li><li><a href="NavbarContainer.html">NavbarContainer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun May 05 2024 14:06:08 GMT-0600 (hora estándar central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

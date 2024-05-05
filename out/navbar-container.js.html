@@ -1,12 +1,40 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: navbar-container.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: navbar-container.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Represents a navbar web component.
  * @class
- * @author Edson Ibarra <edsonibarra54@gmail.com>
+ * @author Edson Ibarra &lt;edsonibarra54@gmail.com>
  * 
  * This component requires a JSON containing the information of every route and its sub routes that are going to be displayed.
  * 
  * @example
- * <header-container icons='[JSON]' routes='routes JSON'></header-container>
+ * &lt;header-container icons='[JSON]' routes='routes JSON'>&lt;/header-container>
  * 
  * @example
  * JSON: [
@@ -42,7 +70,7 @@ class NavbarContainer extends HTMLElement {
      * @function
      */
     attributeChangedCallback(name, oldVal, newVal) {
-        if (name === 'data' && oldVal !== newVal) {
+        if (name === 'data' &amp;&amp; oldVal !== newVal) {
             this.data = JSON.parse(newVal);
             this.render();
             this.addEventListeners();
@@ -78,7 +106,7 @@ class NavbarContainer extends HTMLElement {
      */
     toggleDropdown(dropdown) {
         const dropdownContent = dropdown.querySelector('.dropdown-content');
-        if (this.openDropdown && this.openDropdown !== dropdown) {
+        if (this.openDropdown &amp;&amp; this.openDropdown !== dropdown) {
             this.openDropdown.querySelector('.dropdown-content').classList.remove("show");
         }
         dropdownContent.classList.toggle("show");
@@ -94,26 +122,26 @@ class NavbarContainer extends HTMLElement {
         console.log(this.data);
 
         const itemsHTML = this.data.map(item => {
-            if (item.routes && Array.isArray(item.routes)) {
-                const dropdownContent = item.routes.map(route => `<a href="#">${route}</a>`).join('');
+            if (item.routes &amp;&amp; Array.isArray(item.routes)) {
+                const dropdownContent = item.routes.map(route => `&lt;a href="#">${route}&lt;/a>`).join('');
                 return `
-                    <div class="dropdown">
-                        <div>${item.name}</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon">
-                            <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
-                        </svg>
-                        <div class="dropdown-content">
+                    &lt;div class="dropdown">
+                        &lt;div>${item.name}&lt;/div>
+                        &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon">
+                            &lt;path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
+                        &lt;/svg>
+                        &lt;div class="dropdown-content">
                             ${dropdownContent}
-                        </div>
-                    </div>
+                        &lt;/div>
+                    &lt;/div>
                 `;
             } else {
-                return `<div class="route">${item.name}</div>`;
+                return `&lt;div class="route">${item.name}&lt;/div>`;
             }
         }).join('');
 
         this.shadow.innerHTML = `
-            <style>
+            &lt;style>
                 .container {
                     width: 1500px;
                     height: fit-content;
@@ -230,23 +258,45 @@ class NavbarContainer extends HTMLElement {
                 .show {
                     display: block;
                 }
-            </style>
-            <div>
-                <div class="container">
-                    <div class="dropdownContainer">
+            &lt;/style>
+            &lt;div>
+                &lt;div class="container">
+                    &lt;div class="dropdownContainer">
                         ${itemsHTML}
-                    </div>
-                    <div class="searchContainer">
-                        <input>
-                        <div class="searchButton">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon">
-                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+                    &lt;/div>
+                    &lt;div class="searchContainer">
+                        &lt;input>
+                        &lt;div class="searchButton">
+                            &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon">
+                                &lt;path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                            &lt;/svg>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div> 
         `;
     }
 }
-customElements.define('navbar-container', NavbarContainer);
+customElements.define('navbar-container', NavbarContainer);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BreadcrumbContainer.html">BreadcrumbContainer</a></li><li><a href="CardContainer.html">CardContainer</a></li><li><a href="EventCard.html">EventCard</a></li><li><a href="FooterContainer.html">FooterContainer</a></li><li><a href="HeaderContainer.html">HeaderContainer</a></li><li><a href="NavbarContainer.html">NavbarContainer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun May 05 2024 14:06:08 GMT-0600 (hora estándar central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

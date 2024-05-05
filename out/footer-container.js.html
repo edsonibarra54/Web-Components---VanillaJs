@@ -1,12 +1,40 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: footer-container.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: footer-container.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Represents a web component that contains the footer information.
  * @class
- * @author Edson Ibarra <edsonibarra54@gmail.com>
+ * @author Edson Ibarra &lt;edsonibarra54@gmail.com>
  * 
  * This component requires 3 JSON containing the information of every icon, information and route that are going to be displayed.
  * 
  * @example
- * <footer-container icons='[icons JSON]' infos='[infos JSON]' routes='[routes JSON]' ></footer-container>
+ * &lt;footer-container icons='[icons JSON]' infos='[infos JSON]' routes='[routes JSON]' >&lt;/footer-container>
  * 
  * @example
  * icons JSON: [
@@ -34,7 +62,7 @@ class FooterContainer extends HTMLElement{
     /**
      * It's used to get the date, title and image attributes of the html tag.
      * @function
-     * @returns {Array.<JSON>}
+     * @returns {Array.&lt;JSON>}
      */
     static get observedAttributes() {
         return ['icons', 'infos', 'routes'];
@@ -75,22 +103,22 @@ class FooterContainer extends HTMLElement{
      */
     render() {
         const iconsHTML = this.icons.map(icon => `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
-                <path d="${icon.path}"></path>
-            </svg>
+            &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="${icon.viewBox}" class="icon">
+                &lt;path d="${icon.path}">&lt;/path>
+            &lt;/svg>
         `).join('');
 
-        const infoHTML = this.infos.map(info => `<div class="info">${info}</div>`).join('');
+        const infoHTML = this.infos.map(info => `&lt;div class="info">${info}&lt;/div>`).join('');
 
         const routesHTML = this.routes.map(route => `
-            <div class="routeContainer">
-                <div class="route">${route}</div>
-                <div class="line"></div>
-            </div>
+            &lt;div class="routeContainer">
+                &lt;div class="route">${route}&lt;/div>
+                &lt;div class="line">&lt;/div>
+            &lt;/div>
         `).join('');
 
         this.shadow.innerHTML = `
-            <style>
+            &lt;style>
                 .container {
                     width: 1500px;
                     height: fit-content;
@@ -171,25 +199,47 @@ class FooterContainer extends HTMLElement{
                 .routeContainer:hover .line{
                     border-bottom: 2px solid #FFF;
                 }
-            </style>
-            <div>
-                <div class="container">
-                    <div class="leftContainer">
-                        <div class="iconContainer">
+            &lt;/style>
+            &lt;div>
+                &lt;div class="container">
+                    &lt;div class="leftContainer">
+                        &lt;div class="iconContainer">
                             ${iconsHTML}
-                        </div>
-                        <div class="infoContainer">
+                        &lt;/div>
+                        &lt;div class="infoContainer">
                             ${infoHTML}
-                        </div>
-                    </div>
-                    <div class="rightContainer">
-                        <div class="routesContainer">
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="rightContainer">
+                        &lt;div class="routesContainer">
                             ${routesHTML}
-                        </div>
-                    </div>
-                </div>
-            </div> 
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div> 
         `;
     }
 }
-customElements.define('footer-container', FooterContainer);
+customElements.define('footer-container', FooterContainer);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BreadcrumbContainer.html">BreadcrumbContainer</a></li><li><a href="CardContainer.html">CardContainer</a></li><li><a href="EventCard.html">EventCard</a></li><li><a href="FooterContainer.html">FooterContainer</a></li><li><a href="HeaderContainer.html">HeaderContainer</a></li><li><a href="NavbarContainer.html">NavbarContainer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun May 05 2024 14:06:08 GMT-0600 (hora estándar central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
